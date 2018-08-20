@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>点击有礼</h1>
+    <div id="aa">
+        <div id="close"></div>
+        <ul>
+            <li>
+                <dl>
+                    <dt><img src="images/2.png" /></dt>
+                    <dd>外星人</dd>
+                </dl>
+            </li>
+            <li>
+                <dl>
+                    <dt><img src="images/3.png" /></dt>
+                    <dd>iphoneX</dd>
+                </dl>
+            </li>
+            <li>
+                <dl>
+                    <dt><img src="images/4.png" /></dt>
+                    <dd>眼霜</dd>
+                </dl>
+            </li>
+            <li class="for">
+                <dl>
+                    <dt><img src="images/5.png" /></dt>
+                    <dd>Dior口红</dd>
+                </dl>
+            </li>
+            <li class="fiv">
+                <dl>
+                    <dt><img src="images/6.png" /></dt>
+                    <dd>AJ</dd>
+                </dl>
+            </li>
+            <li class="six">
+                <dl>
+                    <dt><img src="images/7.png" /></dt>
+                    <dd>电暖扇</dd>
+                </dl>
+            </li>
+            <li class="sev">
+                <dl>
+                    <dt><img src="images/8.png" /></dt>
+                    <dd>美图手机</dd>
+                </dl>
+            </li>
+            <li class="eig">
+                <dl>
+                    <dt><img src="images/9.png" /></dt>
+                    <dd>床上用品</dd>
+                </dl>
+            </li>
+            <li class="nine">
+                <dl>
+                    <dt id="btn"><img src="images/1.png" id="pic"/></dt>
+                    <dd>开始点击</dd>
+                </dl>
+            </li>  
+        </ul>   
+    </div>
+
+    <script>
+        //初始化变量：
+        var oLi = document.getElementsByTagName("li");
+        var oBtn = document.getElementById("btn");
+        var oPic = document.getElementById("pic");
+        var num=i=t=0;   //设置一个计数器
+
+
+        oBtn.onclick=function(){
+            oPic.style.transform="scale(0.6)";
+            oPic.style.transition="1s";
+
+            view();   //动画视图（view）
+        }
+        function view(){
+            num=parseInt(Math.random()*10+20);  //确定顺时针循环次数（固定）
+            console.log('固定：'+num);
+            if(i<num){     //i:已完成的循环次数（变化）
+                i++;       //每循环一个Li标签+1
+                setTimeout(view,200);
+                console.log ('动态'+i);
+            }else{
+                i=0;
+                oPic.style.transform="scale(0.8)";
+                oPic.style.transition="1s";
+            }
+
+            //二、动画
+            if(t<oLi.length-1){//先清除所有，在设置一个
+                for(var j=0;j<oLi.length-1;j++){
+                    oLi[j].style.border="2px solid #f00";
+                    oLi[j].style.background="#fff";
+                    }
+                oLi[t].style.border="2px solid #f00";
+                oLi[t].style.background="pink";
+                t++;   
+            }else{
+                t=0;
+            }
+        }
+
+    
+    </script>
+</body>
+</html>
